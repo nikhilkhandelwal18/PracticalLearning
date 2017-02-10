@@ -1,0 +1,887 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/VisionWebServices/VisionGazetteerService" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/VisionWebServices/VisionGazetteerService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/VisionWebServices/VisionGazetteerService">
+      <s:element name="GetGazSearchBeforeChar">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetGazSearchBeforeCharResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGazSearchBeforeCharResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGazSearchAfterChar">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetGazSearchAfterCharResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGazSearchAfterCharResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveRecordTest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="urn" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeSSI" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeLocations" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeLocationActions" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeAlarms" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeContacts" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeAdditionalData" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveRecordTestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveRecordTestResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:GazetteerRetrieveRecordArgs" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GazetteerRetrieveRecordArgs">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RequestIdentifier" type="tns:RequestIdentifier" />
+          <s:element minOccurs="1" maxOccurs="1" name="Counter" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncludeAdditionalData" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncludeAlarms" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncludeContacts" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncludeLocations" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncludeLocationActions" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncludeSSI" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Primary" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="URN" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RequestIdentifier">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ClientType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Position" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SessionIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetrieveRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveRecordResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchTest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="businessName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="buildingName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="buildingNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="streetOne" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="streetTwo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="areaOne" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="areaTwo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="postCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchTestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchTestResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Search">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchArgs" type="tns:GazetteerStructuredSearchArgs" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GazetteerStructuredSearchArgs">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RequestIdentifier" type="tns:RequestIdentifier" />
+          <s:element minOccurs="1" maxOccurs="1" name="SearchType" type="tns:SearchType" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExactMatch" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="AlarmCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildingName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildingNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetOne" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetTwo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AreaOne" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AreaTwo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OwningCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Phonetic" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="StripSearch" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="VicinityX" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="VicinityY" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="VicinityWidth" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="VicinityHeight" type="s:float" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="SearchType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Premise" />
+          <s:enumeration value="Street" />
+          <s:enumeration value="Area" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="SearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchGazetteerTest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchText" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="searchAlgorithmHint" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchGazetteerTestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchGazetteerTestResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchGazetteer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchArgs" type="tns:GazetteerProgressiveSearchArgs" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GazetteerProgressiveSearchArgs">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RequestIdentifier" type="tns:RequestIdentifier" />
+          <s:element minOccurs="1" maxOccurs="1" name="SearchAlgorithmHint" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SearchText" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxPremiseHits" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxStreetHits" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchGazetteerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchGazetteerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExpandStreet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:GazetteerExpandStreetArgs" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GazetteerExpandStreetArgs">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RequestIdentifier" type="tns:RequestIdentifier" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetOne" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetTwo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AreaOne" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AreaTwo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ExpandStreetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExpandStreetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveRecordFromCNI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="buildingNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="streetName1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="areaName1" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveRecordFromCNIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveRecordFromCNIResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCategories">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCategoriesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchProgressive">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchText" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="searchType" type="tns:eSearchType" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxHits" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="eSearchType">
+        <s:restriction base="s:string">
+          <s:enumeration value="eComplete" />
+          <s:enumeration value="ePostcode" />
+          <s:enumeration value="eOrdered" />
+          <s:enumeration value="eAnyway" />
+          <s:enumeration value="eCatchAll" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="SearchProgressiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SearchProgressiveResult" type="tns:sSearchDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="sSearchDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Time" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Hits" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:eSearchType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultType" type="tns:eResultType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Results" type="tns:ArrayOfSSearchResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="eResultType">
+        <s:restriction base="s:string">
+          <s:enumeration value="eComplete" />
+          <s:enumeration value="eResultTimeOut" />
+          <s:enumeration value="eQueryTimeOut" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfSSearchResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="sSearchResult" type="tns:sSearchResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="sSearchResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FclUrn" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Counter" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressString" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rank" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Words" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningFlag" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Primary" type="s:unsignedByte" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchProgressiveExtended">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchText" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="searchType" type="tns:eSearchType" />
+            <s:element minOccurs="1" maxOccurs="1" name="pSoundsLike" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="pArea" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchProgressiveExtendedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SearchProgressiveExtendedResult" type="tns:sSearchDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchExchangeArea">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="exchangeNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchExchangeAreaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SearchExchangeAreaResult" type="tns:sExchangeArea" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="sExchangeArea">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AreaName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AreaCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="xCoord" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="yCoord" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ZoomLevel" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IsAvailable">
+        <s:complexType />
+      </s:element>
+      <s:element name="IsAvailableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsAvailableResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResetAvailability">
+        <s:complexType />
+      </s:element>
+      <s:element name="ResetAvailabilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResetAvailabilityResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetGazSearchBeforeCharSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGazSearchBeforeChar" />
+  </wsdl:message>
+  <wsdl:message name="GetGazSearchBeforeCharSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGazSearchBeforeCharResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGazSearchAfterCharSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGazSearchAfterChar" />
+  </wsdl:message>
+  <wsdl:message name="GetGazSearchAfterCharSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGazSearchAfterCharResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRecordTestSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveRecordTest" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRecordTestSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveRecordTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveRecord" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchTestSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchTest" />
+  </wsdl:message>
+  <wsdl:message name="SearchTestSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchSoapIn">
+    <wsdl:part name="parameters" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="SearchSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchGazetteerTestSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchGazetteerTest" />
+  </wsdl:message>
+  <wsdl:message name="SearchGazetteerTestSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchGazetteerTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchGazetteerSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchGazetteer" />
+  </wsdl:message>
+  <wsdl:message name="SearchGazetteerSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchGazetteerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExpandStreetSoapIn">
+    <wsdl:part name="parameters" element="tns:ExpandStreet" />
+  </wsdl:message>
+  <wsdl:message name="ExpandStreetSoapOut">
+    <wsdl:part name="parameters" element="tns:ExpandStreetResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRecordFromCNISoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveRecordFromCNI" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveRecordFromCNISoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveRecordFromCNIResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCategories" />
+  </wsdl:message>
+  <wsdl:message name="GetCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchProgressiveSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchProgressive" />
+  </wsdl:message>
+  <wsdl:message name="SearchProgressiveSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchProgressiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchProgressiveExtendedSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchProgressiveExtended" />
+  </wsdl:message>
+  <wsdl:message name="SearchProgressiveExtendedSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchProgressiveExtendedResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchExchangeAreaSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchExchangeArea" />
+  </wsdl:message>
+  <wsdl:message name="SearchExchangeAreaSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchExchangeAreaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsAvailableSoapIn">
+    <wsdl:part name="parameters" element="tns:IsAvailable" />
+  </wsdl:message>
+  <wsdl:message name="IsAvailableSoapOut">
+    <wsdl:part name="parameters" element="tns:IsAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResetAvailabilitySoapIn">
+    <wsdl:part name="parameters" element="tns:ResetAvailability" />
+  </wsdl:message>
+  <wsdl:message name="ResetAvailabilitySoapOut">
+    <wsdl:part name="parameters" element="tns:ResetAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:portType name="VisionGazetteerServiceSoap">
+    <wsdl:operation name="GetGazSearchBeforeChar">
+      <wsdl:input message="tns:GetGazSearchBeforeCharSoapIn" />
+      <wsdl:output message="tns:GetGazSearchBeforeCharSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGazSearchAfterChar">
+      <wsdl:input message="tns:GetGazSearchAfterCharSoapIn" />
+      <wsdl:output message="tns:GetGazSearchAfterCharSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRecordTest">
+      <wsdl:input message="tns:RetrieveRecordTestSoapIn" />
+      <wsdl:output message="tns:RetrieveRecordTestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRecord">
+      <wsdl:input message="tns:RetrieveRecordSoapIn" />
+      <wsdl:output message="tns:RetrieveRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchTest">
+      <wsdl:input message="tns:SearchTestSoapIn" />
+      <wsdl:output message="tns:SearchTestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <wsdl:input message="tns:SearchSoapIn" />
+      <wsdl:output message="tns:SearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchGazetteerTest">
+      <wsdl:input message="tns:SearchGazetteerTestSoapIn" />
+      <wsdl:output message="tns:SearchGazetteerTestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchGazetteer">
+      <wsdl:input message="tns:SearchGazetteerSoapIn" />
+      <wsdl:output message="tns:SearchGazetteerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExpandStreet">
+      <wsdl:input message="tns:ExpandStreetSoapIn" />
+      <wsdl:output message="tns:ExpandStreetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRecordFromCNI">
+      <wsdl:input message="tns:RetrieveRecordFromCNISoapIn" />
+      <wsdl:output message="tns:RetrieveRecordFromCNISoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <wsdl:input message="tns:GetCategoriesSoapIn" />
+      <wsdl:output message="tns:GetCategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchProgressive">
+      <wsdl:input message="tns:SearchProgressiveSoapIn" />
+      <wsdl:output message="tns:SearchProgressiveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchProgressiveExtended">
+      <wsdl:input message="tns:SearchProgressiveExtendedSoapIn" />
+      <wsdl:output message="tns:SearchProgressiveExtendedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchExchangeArea">
+      <wsdl:input message="tns:SearchExchangeAreaSoapIn" />
+      <wsdl:output message="tns:SearchExchangeAreaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsAvailable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks to see if the DB the webservice points to is available to query</wsdl:documentation>
+      <wsdl:input message="tns:IsAvailableSoapIn" />
+      <wsdl:output message="tns:IsAvailableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetAvailability">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Resets the cache entry and triggers the removed callback to check the DB now rather than waiting for the timeout</wsdl:documentation>
+      <wsdl:input message="tns:ResetAvailabilitySoapIn" />
+      <wsdl:output message="tns:ResetAvailabilitySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VisionGazetteerServiceSoap" type="tns:VisionGazetteerServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetGazSearchBeforeChar">
+      <soap:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/GetGazSearchBeforeChar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGazSearchAfterChar">
+      <soap:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/GetGazSearchAfterChar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRecordTest">
+      <soap:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/RetrieveRecordTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRecord">
+      <soap:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/RetrieveRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTest">
+      <soap:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/SearchTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchGazetteerTest">
+      <soap:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/SearchGazetteerTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchGazetteer">
+      <soap:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/SearchGazetteer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExpandStreet">
+      <soap:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/ExpandStreet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRecordFromCNI">
+      <soap:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/RetrieveRecordFromCNI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <soap:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/GetCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchProgressive">
+      <soap:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/SearchProgressive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchProgressiveExtended">
+      <soap:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/SearchProgressiveExtended" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchExchangeArea">
+      <soap:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/SearchExchangeArea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAvailable">
+      <soap:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/IsAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetAvailability">
+      <soap:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/ResetAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VisionGazetteerServiceSoap12" type="tns:VisionGazetteerServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetGazSearchBeforeChar">
+      <soap12:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/GetGazSearchBeforeChar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGazSearchAfterChar">
+      <soap12:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/GetGazSearchAfterChar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRecordTest">
+      <soap12:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/RetrieveRecordTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRecord">
+      <soap12:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/RetrieveRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTest">
+      <soap12:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/SearchTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap12:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/Search" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchGazetteerTest">
+      <soap12:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/SearchGazetteerTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchGazetteer">
+      <soap12:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/SearchGazetteer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExpandStreet">
+      <soap12:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/ExpandStreet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveRecordFromCNI">
+      <soap12:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/RetrieveRecordFromCNI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <soap12:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/GetCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchProgressive">
+      <soap12:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/SearchProgressive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchProgressiveExtended">
+      <soap12:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/SearchProgressiveExtended" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchExchangeArea">
+      <soap12:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/SearchExchangeArea" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAvailable">
+      <soap12:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/IsAvailable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetAvailability">
+      <soap12:operation soapAction="http://tempuri.org/VisionWebServices/VisionGazetteerService/ResetAvailability" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VisionGazetteerService">
+    <wsdl:port name="VisionGazetteerServiceSoap" binding="tns:VisionGazetteerServiceSoap">
+      <soap:address location="http://localhost/JPSCDEV_VisionWebServices/VisionGazetteerService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="VisionGazetteerServiceSoap12" binding="tns:VisionGazetteerServiceSoap12">
+      <soap12:address location="http://localhost/JPSCDEV_VisionWebServices/VisionGazetteerService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
